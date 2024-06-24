@@ -14,9 +14,9 @@ class MainActivity : AppCompatActivity() {
     private var rightAnswer: String? = null // クイズの正解
     private var quizCount = 1
     private val quizData = mutableListOf(
-        listOf("パンはパンでも食べられないパンは", "フライパン"),
-        listOf("パンはパンでも食べられないパンは", "フライパン"),
-        listOf("パンはパンでも食べられないパンは", "フライパン")
+        listOf("1パンはパンでも食べられないパンは", "フライパン"),
+        listOf("2パンはパンでも食べられないパンは", "フライパン"),
+        listOf("3パンはパンでも食べられないパンは", "フライパン")
     )
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,6 +53,8 @@ class MainActivity : AppCompatActivity() {
 
         val quiz = quizData[0]
         binding.questionLabel.text = quiz[0]
+
+        quizData.removeAt(0)
     }
 
     fun checkQuizCount(){
