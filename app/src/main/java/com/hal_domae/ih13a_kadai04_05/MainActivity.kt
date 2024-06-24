@@ -1,5 +1,6 @@
 package com.hal_domae.ih13a_kadai04_05
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.KeyEvent
 import androidx.activity.enableEdgeToEdge
@@ -58,7 +59,20 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun checkQuizCount(){
-
+        if(quizCount == 3){
+            // 画面遷移する
+            // アクティビティの切り替え
+            val intent = Intent(this@MainActivity, ResultActivity::class.java)
+            intent.putExtra("RIGHT_ANSWER_COUNT", 1)
+            startActivity(intent)
+        } else {
+            // テキストの入力欄をクリア
+            binding.inputAnswer.text.clear()
+            // クイズのカウントをプラス
+            quizCount++
+            // 次の問題を表示
+            showNextQuiz()
+        }
     }
 
     private fun checkAnswer(){
